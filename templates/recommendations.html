@@ -1,8 +1,21 @@
-<h2>Recommended Actions for Corn Leaf Disease</h2>
-<ul>
-    {% for rec in recommendations %}
-    <li>{{ rec }}</li>
-    {% endfor %}
-</ul>
-<a href="{{ url_for('main_menu') }}">Back to Menu</a>
+{% extends "home.html" %}
+{% block title %}Recommendations{% endblock %}
+{% block content %}
+<h2 class="mb-4">Disease Recommendations</h2>
 
+<div class="card p-3 mb-3">
+    <h5>Prediction: <span class="text-success">{{ prediction }}</span></h5>
+    <p><strong>Confidence:</strong> {{ confidence }}%</p>
+</div>
+
+{% if recommendation %}
+<div class="alert alert-info">
+    <h6>Recommended Action:</h6>
+    <p>{{ recommendation }}</p>
+</div>
+{% else %}
+<div class="alert alert-warning">
+    No specific recommendation available for this diagnosis.
+</div>
+{% endif %}
+{% endblock %}

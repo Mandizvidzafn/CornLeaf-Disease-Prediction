@@ -37,7 +37,7 @@ def model_predict(img_path, model):
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('base.html')
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -63,11 +63,12 @@ def upload():
                          'Tomato_Spider_mites_Two_spotted_spider_mite', 'Tomato__Target_Spot',
                          'Tomato__Tomato_YellowLeaf__Curl_Virus', 'Tomato__Tomato_mosaic_virus', 'Tomato_healthy']
         a = preds[0]
-        ind=np.argmax(a)
+        ind = np.argmax(a)
         print('Prediction:', disease_class[ind])
-        result=disease_class[ind]
-        return result
-    return None
+        result = disease_class[ind]
+        confidence = round(100 * np.max(preds), 2)
+        return render_template('result.html', prediction=result, confidence=confidence, image=secure_filename(f.filename))
+    return render_template('base.html')
 
 
 @app.route('/about')
@@ -78,21 +79,48 @@ def about():
 
 @app.route('/recommendations')
 def recommendations():
-    #if 'user' not in session:
-    #    return redirect(url_for('login'))
-    # Example logic (you can expand this based on prediction results)
-    recommended_actions = [
-        "Use fungicide X during early stages.",
-        "Ensure proper crop rotation.",
-        "Improve drainage to reduce humidity."
-    ]
-    return render_template('recommendations.html', recommendations=recommended_actions)
+    if 'user' not in session:
+        return redirect(url_for('login'))
+
+    predicted_class = session.get('prediction')
+    if not predicted_class:
+        return redirect(url_for('upload'))
+
+    recommended_actions = {
+        "Blight": [
+            "Remove and destroy infected leaves to reduce spread.",
+            "Apply copper-based fungicides during early symptoms.",
+            "Practice crop rotation to avoid recurrent infections.",
+            "Ensure adequate spacing to improve air circulation."
+        ],
+        "Common Rust": [
+            "Use resistant maize hybrids if available.",
+            "Apply appropriate fungicides such as triazoles.",
+            "Plant early to reduce rust development time.",
+            "Avoid overhead irrigation to limit moisture."
+        ],
+        "Gray Leaf Spot": [
+            "Plant disease-resistant corn varieties.",
+            "Rotate with non-host crops like soybeans.",
+            "Apply fungicide before tasseling if high humidity is expected.",
+            "Remove and destroy crop residue after harvest."
+        ],
+        "Healthy": [
+            "Maintain optimal watering and fertilization schedules.",
+            "Monitor leaves regularly for early signs of disease.",
+            "Apply preventive fungicide if disease pressure is high in your area.",
+            "Practice good field sanitation."
+        ]
+    }
+
+    actions = recommended_actions.get(predicted_class, ["No specific recommendations available."])
+    return render_template('recommendations.html', predictions=predicted_class, recommendations=actions)
 
 
 
 if __name__ == '__main__':
-    #app.run(debug=True)
+    app.run(debug=True)
 
    # Serve the app with gevent
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
+    #http_server = WSGIServer(('', 5000), app)
+    #http_server.serve_forever()
