@@ -1,0 +1,8 @@
+<h2>Recommended Actions for Corn Leaf Disease</h2>
+<ul>
+    {% for rec in recommendations %}
+    <li>{{ rec }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main_menu') }}">Back to Menu</a>
+
