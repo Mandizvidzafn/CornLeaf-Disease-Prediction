@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-success text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-5 fw-bold">About Corn Leaf Diagnostic</h1>
+        <p class="lead mt-3">An AI-powered tool to identify corn leaf diseases quickly and provide actionable recommendations.</p>
+    </div>
+</section>
+
+<!-- About Description -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/corn_leaf.jpg') }}" alt="Corn Leaf" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+            <h2>Why Corn Leaf Diagnostic?</h2>
+            <p>
+                Corn Leaf Diagnostic is designed to help farmers and agricultural experts detect common corn leaf diseases such as
+                <strong>Blight, Common Rust,</strong> and <strong>Gray Leaf Spot</strong> using a simple image upload. By leveraging
+                advanced deep learning models like ResNet50, the tool provides accurate predictions along with confidence levels.
+            </p>
+            <p>
+                With real-time recommendations based on the disease type, users can take immediate actions to protect their crops,
+                reduce losses, and improve yield.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Key Features</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">AI-Powered Diagnosis</h5>
+                        <p class="card-text">Uses state-of-the-art neural networks to accurately classify corn leaf diseases.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Instant Recommendations</h5>
+                        <p class="card-text">Provides actionable advice for controlling disease spread and maintaining crop health.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">User-Friendly Interface</h5>
+                        <p class="card-text">Easily upload images, view predictions, and follow recommended actions without technical expertise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="text-center py-5 bg-success text-white">
+    <div class="container">
+        <h3 class="mb-3">Ready to Protect Your Crops?</h3>
+        <a href="/predict" class="btn btn-light btn-lg">Upload Your Corn Leaf Image</a>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+{% endblock %}
+

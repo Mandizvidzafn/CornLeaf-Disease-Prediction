@@ -20,12 +20,14 @@ $(document).ready(function () {
         readURL(this);
     });
     // Predict
-    $('#btn-predict').click(function () {
+    $('#btn-predict').click(function (e) {
+        e.preventDefault();
         var form_data = new FormData($('#upload-file')[0]);
 
         // Show loading animation
         $(this).hide();
         $('.loader').show();
+        $('#btn-try-another').show();
 
         // Make prediction by calling api /predict
         $.ajax({
@@ -39,8 +41,28 @@ $(document).ready(function () {
             success: function (data) {
                 // Get and display the result
                 $('.loader').hide();
+
+                // Update prediction + confidence
+                $('#predictionResult').html(
+                    `<h4 class="mb-0">Disease: <strong>${data.prediction}</strong></h4>
+                     <p class="mb-0">Confidence: ${data.confidence}%</p>`
+                );
+
+                // Update recommendations block
+                let recHtml = '<h5 class="mb-3">Recommendations</h5>';
+                if (data.recommendations && data.recommendations.length > 0) {
+                    recHtml += '<ul class="list-group text-start">';
+                    data.recommendations.forEach(function (rec) {
+                        recHtml += `<li class="list-group-item">${rec}</li>`;
+                    });
+                    recHtml += '</ul>';
+                } else {
+                    recHtml += '<p>No specific recommendations available.</p>';
+                }
+                $('.card.shadow.p-4').html(recHtml);
+
+                // Show result smoothly
                 $('#result').fadeIn(600);
-                $('#result').html(' Result:  ' + data);
                 console.log('Success!');
             },
         });
