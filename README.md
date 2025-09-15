@@ -37,6 +37,9 @@ Uses a **ResNet50 model** trained on the PlantVillage dataset for accurate class
 
 ---
 
+**Dataset**
+https://www.kaggle.com/datasets/smaranjitghose/corn-or-maize-leaf-disease-dataset
+
 ## 🛠️ Installation
 
 1. Clone the repository:
@@ -46,3 +49,5 @@ git clone https://github.com/Mandizvidzafn/CornLeaf-Disease-Prediction.git
 cd CornLeaf-Disease-Prediction
 pip install requirements.txt
 python app.py
+
+**Dataset**
