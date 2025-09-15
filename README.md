@@ -47,7 +47,7 @@ https://www.kaggle.com/datasets/smaranjitghose/corn-or-maize-leaf-disease-datase
 ```bash
 git clone https://github.com/Mandizvidzafn/CornLeaf-Disease-Prediction.git
 cd CornLeaf-Disease-Prediction
-pip install requirements.txt
+pip install -r requirements.txt
 python app.py
 
 **Dataset**
