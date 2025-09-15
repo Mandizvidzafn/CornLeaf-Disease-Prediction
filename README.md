@@ -1,29 +1,48 @@
-# Plant-Disease-Diagnosis-Flask
-Online Flask Web App for Plant Disease Diagnosis from Images <br>
+# 🌿 Plant Disease Diagnosis Flask Web App
 
-<img src="demo.JPG" width="600" height="300"/><br><br>
+[![Python](https://img.shields.io/badge/Python-3.6+-blue)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-✓-green)](https://flask.palletsprojects.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-## Required Tools
-```
-Python 3.6 or greater, Tensorflow 2, Flask, Gevent, Scikit-Learn
-```
+An AI-powered web application built with **Flask** for diagnosing corn leaf diseases from images using a pre-trained deep learning model.
 
-## Run
-```
-flask run
-```
+---
 
-Open Browser at http://121.0.0.1:5000
+## 🔍 Overview
 
-## Dataset
+Upload images of corn leaves and get **real-time predictions** of potential diseases.  
+Uses a **DenseNet121 model** trained on the PlantVillage dataset for accurate classification.
 
-https://www.kaggle.com/emmarex/plantdisease
+---
 
+## ✨ Features
 
-## Implementation
+- 🖼️ **Upload Images**: Simple and intuitive interface.
+- ⚡ **Instant Predictions**: Fast and accurate results.
+- 🧠 **Pre-Trained Model**: DenseNet121-based for reliability.
+- 📊 **Visual Feedback**: See your image alongside predicted disease.
 
+---
 
-https://www.kaggle.com/shawon10/plant-disease-classification-using-densenet121
+## 🖥️ Screenshots
 
+**Home Page**  
+![Home Page](static/images/index.png)
 
+**Model Training**  
+![Model Training](static/images/train_model.png)
 
+**Prediction Requests**  
+![Prediction Requests](static/images/requests.png)
+
+---
+
+## 🛠️ Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Mandizvidzafn/CornLeaf-Disease-Prediction.git
+cd CornLeaf-Disease-Prediction
+pip install requirements.txt
+python app.py
