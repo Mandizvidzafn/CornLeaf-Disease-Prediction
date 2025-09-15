@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5 text-center">
+
+    <!-- Uploaded image -->
+    <div class="image-section" style="display:none;">
+         <img id="imagePreview"  class="img-responsive" src="#" style="width:300px;height:300px;"/><br><br>
+         <div>
+                <button type="submit" class="btn btn-success" id="btn-predict">Predict</button>
+         </div>
+    </div>
+
+
+    <!-- Prediction and confidence -->
+    <h2 class="mb-4">Prediction Result</h2>  
+    <div id="predictionResult" class="alert alert-info">
+        <h4 class="mb-0">Disease: <strong>{{ prediction }}</strong></h4>
+        <p class="mb-0">Confidence: {{ confidence }}%</p>
+    </div>
+    
+    <!-- Recommendations -->
+    <div class="card shadow p-4">
+        <h5 class="mb-3">Recommendations</h5>
+        {% if recommendations %}
+            <ul class="list-group text-start">
+                {% for rec in recommendations %}
+                    <li class="list-group-item">{{ rec }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No specific recommendations available.</p>
+        {% endif %}
+    </div>
+
+
+    <form id="upload-file" method="POST" enctype="multipart/form-data" class="mt-2">
+    <div class="mb-3">
+        <input type="file" class="form-control" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" required>
+    </div>
+    </form>
+    <a href="{{ url_for('index') }}" id="btn-try-another" style="display: none;" class="btn btn-success mt-2 mb-1">Try Another Image</a>
+</div>
+
+{% endblock %}

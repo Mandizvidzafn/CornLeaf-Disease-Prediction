@@ -87,11 +87,11 @@ def model_predict_array(img_array, model):
 @app.route('/', methods=['GET'])
 def index():
     session.clear() 
-    return render_template('base.html')
+    return render_template('index.html')
 
 
 @app.route('/predict', methods=['GET', 'POST'])
-def upload():
+def predict():
     if request.method == 'POST':
         # Get the file from post request
         f = request.files['file']
@@ -143,10 +143,13 @@ def recommendations():
 
     return render_template('recommendations.html', prediction=prediction, recommendations=recommendations, confidence=confidence)
 
-@app.route('/about')
+@app.route('/upload')
+def upload():
+    return render_template('upload.html')
+
+@app.route('/about', methods=['GET'])
 def about():
     return render_template('about.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,78 +1,87 @@
 {% extends "base.html" %}
 
-{% block title %}About{% endblock %}
+    {% block title %}About - Corn Leaf Disease Diagnostic{% endblock %}
+    {% block styles %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .workflow-step {
+            transition: transform 0.3s;
+        }
+        .workflow-step:hover {
+            transform: translateY(-5px);
+        }
+        .workflow-icon {
+            font-size: 3rem;
+            color: #198754;
+        }
+    </style>
+    {% endblock %}
+
 {% block content %}
-<!-- Hero Section -->
-<section class="bg-success text-white text-center py-5">
+<!-- Header Section -->
+<header class="py-5 bg-success text-white text-center">
     <div class="container">
-        <h1 class="display-5 fw-bold">About Corn Leaf Diagnostic</h1>
-        <p class="lead mt-3">An AI-powered tool to identify corn leaf diseases quickly and provide actionable recommendations.</p>
+        <h1 class="display-5 fw-bold">About The AI Powered Corn Leaf Diagnostic App</h1>
+        <p class="lead">Detect diseases in corn leaves quickly using AI & ML image classification and get actionable recommendations.</p>
     </div>
-</section>
+</header>
 
-<!-- About Description -->
-<section class="container my-5">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{{ url_for('static', filename='images/corn_leaf.jpg') }}" alt="Corn Leaf" class="img-fluid rounded shadow">
-        </div>
-        <div class="col-md-6">
-            <h2>Why Corn Leaf Diagnostic?</h2>
-            <p>
-                Corn Leaf Diagnostic is designed to help farmers and agricultural experts detect common corn leaf diseases such as
-                <strong>Blight, Common Rust,</strong> and <strong>Gray Leaf Spot</strong> using a simple image upload. By leveraging
-                advanced deep learning models like ResNet50, the tool provides accurate predictions along with confidence levels.
-            </p>
-            <p>
-                With real-time recommendations based on the disease type, users can take immediate actions to protect their crops,
-                reduce losses, and improve yield.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- Features -->
-<section class="bg-light py-5">
+<!-- About Content -->
+<section class="py-5">
     <div class="container">
-        <h2 class="text-center mb-5">Key Features</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">AI-Powered Diagnosis</h5>
-                        <p class="card-text">Uses state-of-the-art neural networks to accurately classify corn leaf diseases.</p>
-                    </div>
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <h2>What The App Does</h2>
+                <p>This application uses a deep learning model <strong>(ResNet50)</strong> trained on corn leaf images to detect diseases like Blight, Common Rust, and Gray Leaf Spot. It gives farmers or agronomists a confidence score and actionable steps to manage the disease efficiently.</p>
+            </div>
+
+        </div>
+
+        <!-- Workflow Section -->
+        <h2 class="mb-4 text-center">How It Works</h2>
+        <div class="row g-4 text-center">
+            <!-- Step 1 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-upload workflow-icon"></i></div>
+                    <h5>1. Upload Leaf Image</h5>
+                    <p>Users upload a photo of a corn leaf in PNG or JPEG format.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Instant Recommendations</h5>
-                        <p class="card-text">Provides actionable advice for controlling disease spread and maintaining crop health.</p>
-                    </div>
+            <!-- Step 2 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-brush workflow-icon"></i></div>
+                    <h5>2. Preprocessing</h5>
+                    <p>The image is resized and normalized to match the AI model's input format.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">User-Friendly Interface</h5>
-                        <p class="card-text">Easily upload images, view predictions, and follow recommended actions without technical expertise.</p>
-                    </div>
+            <!-- Step 3 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-cpu workflow-icon"></i></div>
+                    <h5>3. AI Prediction</h5>
+                    <p>The model analyzes the image and predicts the disease class: Blight, Rust, Gray Leaf Spot, or Healthy.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-check-circle workflow-icon"></i></div>
+                    <h5>4. Results & Recommendations</h5>
+                    <p>Displays the predicted disease, confidence score, and actionable steps for disease management.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Call to Action -->
-<section class="text-center py-5 bg-success text-white">
-    <div class="container">
-        <h3 class="mb-3">Ready to Protect Your Crops?</h3>
-        <a href="/predict" class="btn btn-light btn-lg">Upload Your Corn Leaf Image</a>
-    </div>
-</section>
 
-<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 {% endblock %}
-
