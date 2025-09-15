@@ -49,4 +49,3 @@ git clone https://github.com/Mandizvidzafn/CornLeaf-Disease-Prediction.git
 cd CornLeaf-Disease-Prediction
 pip install -r requirements.txt
 python app.py
-
