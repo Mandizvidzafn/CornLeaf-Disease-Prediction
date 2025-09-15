@@ -19,7 +19,7 @@ Uses a **DenseNet121 model** trained on the PlantVillage dataset for accurate cl
 
 - 🖼️ **Upload Images**: Simple and intuitive interface.
 - ⚡ **Instant Predictions**: Fast and accurate results.
-- 🧠 **Pre-Trained Model**: DenseNet121-based for reliability.
+- 🧠 **Pre-Trained Model**: ResNet50 for reliability.
 - 📊 **Visual Feedback**: See your image alongside predicted disease.
 
 ---
