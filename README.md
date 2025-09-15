@@ -50,4 +50,3 @@ cd CornLeaf-Disease-Prediction
 pip install -r requirements.txt
 python app.py
 
-**Dataset**
