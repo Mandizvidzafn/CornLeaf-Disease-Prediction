@@ -37,7 +37,7 @@ Uses a **ResNet50 model** trained on the PlantVillage dataset for accurate class
 
 ---
 
-**Dataset**
+**Dataset:**
 https://www.kaggle.com/datasets/smaranjitghose/corn-or-maize-leaf-disease-dataset
 
 ## 🛠️ Installation
