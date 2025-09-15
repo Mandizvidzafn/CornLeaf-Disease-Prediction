@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+    {% block title %}About - Corn Leaf Disease Diagnostic{% endblock %}
+    {% block styles %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .workflow-step {
+            transition: transform 0.3s;
+        }
+        .workflow-step:hover {
+            transform: translateY(-5px);
+        }
+        .workflow-icon {
+            font-size: 3rem;
+            color: #198754;
+        }
+    </style>
+    {% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="py-5 bg-success text-white text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold">About The AI Powered Corn Leaf Diagnostic App</h1>
+        <p class="lead">Detect diseases in corn leaves quickly using AI & ML image classification and get actionable recommendations.</p>
+    </div>
+</header>
+
+<!-- About Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <h2>What The App Does</h2>
+                <p>This application uses a deep learning model <strong>(ResNet50)</strong> trained on corn leaf images to detect diseases like Blight, Common Rust, and Gray Leaf Spot. It gives farmers or agronomists a confidence score and actionable steps to manage the disease efficiently.</p>
+            </div>
+
+        </div>
+
+        <!-- Workflow Section -->
+        <h2 class="mb-4 text-center">How It Works</h2>
+        <div class="row g-4 text-center">
+            <!-- Step 1 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-upload workflow-icon"></i></div>
+                    <h5>1. Upload Leaf Image</h5>
+                    <p>Users upload a photo of a corn leaf in PNG or JPEG format.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-brush workflow-icon"></i></div>
+                    <h5>2. Preprocessing</h5>
+                    <p>The image is resized and normalized to match the AI model's input format.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-cpu workflow-icon"></i></div>
+                    <h5>3. AI Prediction</h5>
+                    <p>The model analyzes the image and predicts the disease class: Blight, Rust, Gray Leaf Spot, or Healthy.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="col-md-3">
+                <div class="card p-4 workflow-step shadow h-100">
+                    <div class="mb-3"><i class="bi bi-check-circle workflow-icon"></i></div>
+                    <h5>4. Results & Recommendations</h5>
+                    <p>Displays the predicted disease, confidence score, and actionable steps for disease management.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Recommendations{% endblock %}
+{% block content %}
+<div class="container mt-5">
+<h2 class="mb-4">Disease Recommendations</h2>
+
+<div class="card p-3 mb-3">
+    <h5>Prediction: <span class="text-success">{{ prediction }}</span></h5>
+    <p><strong>Confidence:</strong> {{ confidence }}%</p>
+</div>
+
+{% if recommendations %}
+<div class="alert alert-info">
+    <h6>Recommended Action:</h6>
+    <ul class="list-group text-start">
+        {% for rec in recommendations %}
+            <li class="list-group-item">{{ rec }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+<div class="alert alert-warning">
+    No specific recommendation available for this diagnosis.
+</div>
+</div>
+{% endif %}
+{% endblock %}
