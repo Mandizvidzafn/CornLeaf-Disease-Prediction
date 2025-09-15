@@ -10,8 +10,8 @@ An AI-powered web application built with **Flask** for diagnosing corn leaf dise
 
 ## 🔍 Overview
 
-Upload images of corn leaves and get **real-time predictions** of potential diseases.  
-Uses a **DenseNet121 model** trained on the PlantVillage dataset for accurate classification.
+Upload images of corn leaves and get **real time predictions** of potential diseases.  
+Uses a **ResNet50 model** trained on the PlantVillage dataset for accurate classification.
 
 ---
 
