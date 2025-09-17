@@ -1,0 +1,5 @@
+venv
+.gitattributes
+.gitignore
+Dockerfile 
+..bfg-report
