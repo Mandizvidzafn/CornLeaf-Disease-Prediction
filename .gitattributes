@@ -1,3 +1,4 @@
 *.h5 filter=lfs diff=lfs merge=lfs -text
 cornleaf-data/* filter=lfs diff=lfs merge=lfs -text
 cornleaf-data filter=lfs diff=lfs merge=lfs -text
+model/plant_disease_model.h5 filter=lfs diff=lfs merge=lfs -text
